@@ -1,4 +1,4 @@
-package dev.java.CadastroEmpresas;
+package dev.java.CadastroEmpresas.Empresas;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
