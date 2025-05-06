@@ -22,11 +22,13 @@ public class EmpresaModel {
     @Column(unique = true)
     private String email;
 
+    private String imgUrl;
+
     @Column(unique = true)
     private int cnpj;
 
     //@ManyToOne uma empresa tem um único servico
     @ManyToOne
     @JoinColumn(name = "servico_id")
-    private ServicoModel servicos;
+    private ServicoModel servico;
 }
