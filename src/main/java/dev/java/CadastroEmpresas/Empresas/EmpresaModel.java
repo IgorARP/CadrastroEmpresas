@@ -18,9 +18,11 @@ public class EmpresaModel {
     private Long id;
 
     private String nome;
-
+    //A coluna tem que ser unica
+    @Column(unique = true)
     private String email;
 
+    @Column(unique = true)
     private int cnpj;
 
     //@ManyToOne uma empresa tem um único servico
