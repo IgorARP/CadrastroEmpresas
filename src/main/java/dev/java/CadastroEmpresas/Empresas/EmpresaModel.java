@@ -2,10 +2,16 @@ package dev.java.CadastroEmpresas.Empresas;
 
 import dev.java.CadastroEmpresas.Servicos.ServicoModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 //Entity transforma uma classe em uma entidade no BD
 @Entity
 @Table(name = "tb_cadastro_empresas")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class EmpresaModel {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
