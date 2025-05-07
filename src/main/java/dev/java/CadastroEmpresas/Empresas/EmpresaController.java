@@ -2,10 +2,17 @@ package dev.java.CadastroEmpresas.Empresas;
 
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping
+import java.util.List;
 
+@RestController
+@RequestMapping("/empresa")
 public class EmpresaController {
+
+    private EmpresaService empresaService;
+
+    public EmpresaController(EmpresaService empresaService) {
+        this.empresaService = empresaService;
+    }
 
     @GetMapping("/boasVindas")
     public String boasVindas(){
@@ -18,7 +25,7 @@ public class EmpresaController {
 
     //Mostrar todas as Empresas (READ)
     @GetMapping("/todos")
-    public String mostrarEmpresas(){return "Empresas mostradas";}
+    public List<EmpresaModel> listarEmpresa(){return empresaService.listarEmpresa();}
 
     //Alterar dados das EMpresas (UPDATE)
     @PutMapping("/alterarID")

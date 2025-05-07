@@ -1,5 +1,6 @@
 package dev.java.CadastroEmpresas.Servicos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.java.CadastroEmpresas.Empresas.EmpresaModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -25,5 +26,6 @@ public class ServicoModel {
 
     // Um serviço pode ter varias empresas
     @OneToMany(mappedBy = "servico")
+    @JsonIgnore
     private List<EmpresaModel> empresas;
 }
