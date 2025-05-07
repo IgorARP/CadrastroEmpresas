@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmpresaService {
@@ -17,5 +18,17 @@ public class EmpresaService {
     //Listar Todas as empresas
     public List<EmpresaModel> listarEmpresa(){
         return empresaRepository.findAll();
+    }
+
+    //Lista empresa por ID
+    public EmpresaModel listarEmpresaPorID(Long id){
+        Optional<EmpresaModel>empresaPorID = empresaRepository.findById(id);
+        return empresaPorID.orElse(null);
+    }
+
+    //Criar uma nova empresa
+    public EmpresaModel criarEmpresa(EmpresaModel empresaModel){
+        return empresaRepository.save(empresaModel) ;
+
     }
 }
