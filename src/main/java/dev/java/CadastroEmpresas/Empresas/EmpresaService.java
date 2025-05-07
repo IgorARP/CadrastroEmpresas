@@ -35,4 +35,14 @@ public class EmpresaService {
     public void deletarEmpresaPorID(Long id){
          empresaRepository.deleteById(id);
     }
+
+    //Atualizar Empresa
+    public EmpresaModel atualizarEmpresa(Long id, EmpresaModel empresa) {
+        if (empresaRepository.existsById(id)) {
+            empresa.setId(id);
+            return empresaRepository.save(empresa);
+        }
+        return null;
+    }
+
 }

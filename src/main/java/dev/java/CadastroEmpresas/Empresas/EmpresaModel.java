@@ -17,6 +17,11 @@ public class EmpresaModel {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+
     private String nome;
     //A coluna tem que ser unica
     @Column(unique = true)

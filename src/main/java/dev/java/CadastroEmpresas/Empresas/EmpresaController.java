@@ -27,7 +27,9 @@ public class EmpresaController {
 
     //Mostrar todas as Empresas (READ)
     @GetMapping("/todos")
-    public List<EmpresaModel> listarEmpresa(){return empresaService.listarEmpresa();}
+    public List<EmpresaModel> listarEmpresa(){
+        return empresaService.listarEmpresa();
+    }
 
     //Mostrar empresa por ID(READ)
     @GetMapping("/listar/{id}")
@@ -36,12 +38,15 @@ public class EmpresaController {
     }
 
     //Alterar dados das Empresas (UPDATE)
-    @PutMapping("/alterarID")
-    public String alterarEmpresaPorID(){return "Empresa alterada";}
+    @PutMapping("/alterar/{id}")
+    public EmpresaModel alterarEmpresaPorID(@PathVariable Long id, @RequestBody EmpresaModel empresaAtualizada){
+        return empresaService.atualizarEmpresa(id,empresaAtualizada);
+    }
 
     //Deletar Empresa (DELETE)
     @DeleteMapping("/deletar/{id}")
     public void deletarEmpresaPorID(@PathVariable Long id){
-        empresaService.deletarEmpresaPorID(id);}
+        empresaService.deletarEmpresaPorID(id);
+    }
 
 }
