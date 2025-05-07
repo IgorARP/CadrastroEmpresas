@@ -40,7 +40,8 @@ public class EmpresaController {
     public String alterarEmpresaPorID(){return "Empresa alterada";}
 
     //Deletar Empresa (DELETE)
-    @DeleteMapping("/deletarID")
-    public String deletarEmpresaPorID(){return "Empresa deletada";}
+    @DeleteMapping("/deletar/{id}")
+    public void deletarEmpresaPorID(@PathVariable Long id){
+        empresaService.deletarEmpresaPorID(id);}
 
 }

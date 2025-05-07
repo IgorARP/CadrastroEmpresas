@@ -29,6 +29,10 @@ public class EmpresaService {
     //Criar uma nova empresa
     public EmpresaModel criarEmpresa(EmpresaModel empresaModel){
         return empresaRepository.save(empresaModel) ;
+    }
 
+    //Deletar EmpresaPorID TEM QUE SER METODO VOID
+    public void deletarEmpresaPorID(Long id){
+         empresaRepository.deleteById(id);
     }
 }
