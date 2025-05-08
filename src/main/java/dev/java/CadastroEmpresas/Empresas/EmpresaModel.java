@@ -5,12 +5,14 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 //Entity transforma uma classe em uma entidade no BD
 @Entity
 @Table(name = "tb_cadastro_empresas")
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(exclude = "servico")
 public class EmpresaModel {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
