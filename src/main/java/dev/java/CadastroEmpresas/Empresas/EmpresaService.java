@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class EmpresaService {
@@ -18,14 +19,17 @@ public class EmpresaService {
     }
 
     //Listar Todas as empresas
-    public List<EmpresaModel> listarEmpresa(){
-        return empresaRepository.findAll();
+    public List<EmpresaDTO> listarEmpresa(){
+        List<EmpresaModel> empresa = empresaRepository.findAll();
+        return empresa.stream()
+                .map(empresaMapper::map)
+                .collect(Collectors.toList());
     }
 
     //Lista empresa por ID
-    public EmpresaModel listarEmpresaPorID(Long id){
+    public EmpresaDTO listarEmpresaPorID(Long id){
         Optional<EmpresaModel>empresaPorID = empresaRepository.findById(id);
-        return empresaPorID.orElse(null);
+        return empresaPorID.map(empresaMapper::map).orElse(null);
     }
 
     //Criar uma nova empresa
@@ -41,10 +45,13 @@ public class EmpresaService {
     }
 
     //Atualizar Empresa
-    public EmpresaModel atualizarEmpresa(Long id, EmpresaModel empresa) {
-        if (empresaRepository.existsById(id)) {
-            empresa.setId(id);
-            return empresaRepository.save(empresa);
+    public EmpresaDTO atualizarEmpresa(Long id, EmpresaDTO empresaDTO) {
+        Optional<EmpresaModel> empresaExistente = empresaRepository.findById(id);
+        if (empresaExistente.isPresent()){
+            EmpresaModel empresaAtualizada = empresaMapper.map(empresaDTO);
+            empresaAtualizada.setId(id);
+            EmpresaModel empresaSalvo = empresaRepository.save(empresaAtualizada);
+            return empresaMapper.map(empresaSalvo);
         }
         return null;
     }
