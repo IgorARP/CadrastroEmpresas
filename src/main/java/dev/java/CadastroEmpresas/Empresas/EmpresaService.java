@@ -10,9 +10,11 @@ import java.util.Optional;
 public class EmpresaService {
 
     private EmpresaRepository empresaRepository;
+    private EmpresaMapper empresaMapper;
 
-    public EmpresaService(EmpresaRepository empresaRepository){
+    public EmpresaService(EmpresaRepository empresaRepository, EmpresaMapper empresaMapper) {
         this.empresaRepository = empresaRepository;
+        this.empresaMapper = empresaMapper;
     }
 
     //Listar Todas as empresas
@@ -27,8 +29,10 @@ public class EmpresaService {
     }
 
     //Criar uma nova empresa
-    public EmpresaModel criarEmpresa(EmpresaModel empresaModel){
-        return empresaRepository.save(empresaModel) ;
+    public EmpresaDTO criarEmpresa(EmpresaDTO empresaDTO){
+       EmpresaModel empresa = empresaMapper.map(empresaDTO);
+       empresa = empresaRepository.save(empresa);
+       return empresaMapper.map(empresa);
     }
 
     //Deletar EmpresaPorID TEM QUE SER METODO VOID

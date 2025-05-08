@@ -21,7 +21,7 @@ public class EmpresaController {
 
     //Adicionar Empresa(CREATE)
     @PostMapping("/criar")
-    public EmpresaModel criarEmpresa(@RequestBody EmpresaModel empresa){
+    public EmpresaDTO criarEmpresa(@RequestBody EmpresaDTO empresa){
         return empresaService.criarEmpresa(empresa);
     }
 
