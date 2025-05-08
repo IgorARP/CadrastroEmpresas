@@ -21,25 +21,25 @@ public class EmpresaController {
 
     //Adicionar Empresa(CREATE)
     @PostMapping("/criar")
-    public EmpresaModel criarEmpresa(@RequestBody EmpresaModel empresa){
+    public EmpresaDTO criarEmpresa(@RequestBody EmpresaDTO empresa){
         return empresaService.criarEmpresa(empresa);
     }
 
     //Mostrar todas as Empresas (READ)
     @GetMapping("/todos")
-    public List<EmpresaModel> listarEmpresa(){
+    public List<EmpresaDTO> listarEmpresa(){
         return empresaService.listarEmpresa();
     }
 
     //Mostrar empresa por ID(READ)
     @GetMapping("/listar/{id}")
-    public EmpresaModel listarEmpresaPorID(@PathVariable Long id){
+    public EmpresaDTO listarEmpresaPorID(@PathVariable Long id){
         return empresaService.listarEmpresaPorID(id);
     }
 
     //Alterar dados das Empresas (UPDATE)
     @PutMapping("/alterar/{id}")
-    public EmpresaModel alterarEmpresaPorID(@PathVariable Long id, @RequestBody EmpresaModel empresaAtualizada){
+    public EmpresaDTO alterarEmpresaPorID(@PathVariable Long id, @RequestBody EmpresaDTO empresaAtualizada){
         return empresaService.atualizarEmpresa(id,empresaAtualizada);
     }
 
