@@ -32,7 +32,7 @@ public class EmpresaModel {
     private int cnpj;
 
     //@ManyToOne uma empresa tem um único servico
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "servico_id")
     private ServicoModel servico;
 
