@@ -1,5 +1,6 @@
 Apresentação
-O Cadastro de empresasé um sistema CRUD desenvolvido para gerenciar listas personalizadas de empresas (ou qualquer outro tipo de relação entre objetos e grupos). O projeto permite organizar empresas em listas específicas, facilitando a categorização e a personalização. Cada empresa tem suas caracteristicas como, nome, email, cnpj, 
+
+O Cadastro de empresas é um sistema CRUD desenvolvido para gerenciar listas personalizadas de empresas (ou qualquer outro tipo de relação entre objetos e grupos). O projeto permite organizar empresas em listas específicas, facilitando a categorização e a personalização. Cada empresa tem suas caracteristicas como, nome, email, cnpj, 
 
 Tecnologias utilizadas
 Java (Spring Boot)
