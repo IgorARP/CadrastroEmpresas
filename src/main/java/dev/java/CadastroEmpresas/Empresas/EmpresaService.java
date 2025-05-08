@@ -10,8 +10,8 @@ import java.util.stream.Collectors;
 @Service
 public class EmpresaService {
 
-    private EmpresaRepository empresaRepository;
-    private EmpresaMapper empresaMapper;
+    private final EmpresaRepository empresaRepository;
+    private final EmpresaMapper empresaMapper;
 
     public EmpresaService(EmpresaRepository empresaRepository, EmpresaMapper empresaMapper) {
         this.empresaRepository = empresaRepository;

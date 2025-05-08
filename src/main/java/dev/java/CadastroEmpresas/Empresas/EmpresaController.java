@@ -10,7 +10,7 @@ import java.util.List;
 @RequestMapping("/empresa")
 public class EmpresaController {
 
-    private EmpresaService empresaService;
+    private final EmpresaService empresaService;
 
     public EmpresaController(EmpresaService empresaService) {
         this.empresaService = empresaService;
